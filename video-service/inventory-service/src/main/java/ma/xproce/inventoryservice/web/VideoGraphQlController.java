@@ -1,6 +1,5 @@
 package ma.xproce.inventoryservice.web;
 
-
 import ma.xproce.inventoryservice.dao.entities.Creator;
 import ma.xproce.inventoryservice.dao.entities.Video;
 import ma.xproce.inventoryservice.dao.repositories.CreatorRepository;
@@ -15,6 +14,7 @@ import java.util.List;
 public class VideoGraphQlController {
 
     private CreatorRepository creatorRepository;
+
     private VideoRepository videoRepository;
 
     VideoGraphQlController(CreatorRepository creatorRepository, VideoRepository videoRepository){
@@ -35,6 +35,7 @@ public class VideoGraphQlController {
 
     @MutationMapping
     public Video saveVideo(@Argument Video video){
+        System.out.println(video.toString());
         creatorRepository.save(video.getCreator()) ;
         return videoRepository.save(video) ;
     }
@@ -43,5 +44,4 @@ public class VideoGraphQlController {
     public Creator saveCreator(@Argument Creator creator){
         return creatorRepository.save(creator);
     }
-    
 }
