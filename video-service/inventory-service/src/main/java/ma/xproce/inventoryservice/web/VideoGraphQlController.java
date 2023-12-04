@@ -35,8 +35,7 @@ public class VideoGraphQlController {
 
     @MutationMapping
     public Video saveVideo(@Argument Video video){
-        System.out.println(video.toString());
-        creatorRepository.save(video.getCreator()) ;
+        //...
         return videoRepository.save(video) ;
     }
 
