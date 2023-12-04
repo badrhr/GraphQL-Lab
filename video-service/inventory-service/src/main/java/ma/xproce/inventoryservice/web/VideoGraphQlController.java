@@ -34,7 +34,14 @@ public class VideoGraphQlController {
     }
 
     @MutationMapping
-    public Video addVideo(@Argument Video video){
+    public Video saveVideo(@Argument Video video){
+        creatorRepository.save(video.getCreator()) ;
         return videoRepository.save(video) ;
     }
+
+    @MutationMapping
+    public Creator saveCreator(@Argument Creator creator){
+        return creatorRepository.save(creator);
+    }
+    
 }
